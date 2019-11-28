@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_215802) do
+ActiveRecord::Schema.define(version: 2019_11_28_221732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "name"
+    t.boolean "present"
+    t.boolean "mairie"
+    t.boolean "absent"
+    t.text "comment"
+    t.integer "number_of_invites"
+    t.string "invite1"
+    t.string "invite2"
+    t.string "invite3"
+    t.string "invite4"
+    t.string "invite5"
+    t.string "invite6"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
