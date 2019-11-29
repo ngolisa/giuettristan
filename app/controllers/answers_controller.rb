@@ -46,6 +46,6 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:name, :present, :mairie, :absent, :number_of_invites, :comment)
+    params.require(:answer).permit(:name, :present, :mairie, :absent, :number_of_invites, :comment, :invite1, :invite2, :invite3, :invite4, :invite5, :invite6)
   end
 end

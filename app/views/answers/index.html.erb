@@ -1,12 +1,12 @@
-<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+<%= link_to('Logout', destroy_user_session_path, class: "btn-send", method: :delete) %>
 <% if current_user.admin %>
 <div class="container">
-  <h1>Ceux qui ont répondus</h1>
-  <% a = 0 %>
-  <% @answers.each do |answer|  %>
-  <% a += answer.number_of_invites %>
-  <% end %>
-
+  <h1>Ceux qui ont répondus
+    <% a = 0 %>
+    <% @answers.each do |answer|  %>
+    <% a += answer.number_of_invites %>
+    <% end %>
+  </h1>
 
 
   <table class="table">
@@ -18,6 +18,7 @@
         <th scope="col">💒</th>
         <th scope="col">❌</th>
         <th scope="col">Petit mot 📋</th>
+        <th scope="col">Invités</th>
         <th scope="col"></th>
       </tr>
     </thead>
@@ -30,7 +31,8 @@
         <td><%= answer.mairie ? "💒" : "-" %></td>
         <td><%= answer.absent ? "❌" : "-" %></td>
         <td><%= answer.comment %></td>
-        <td><%= link_to "Edit", edit_answer_path(answer)%>
+        <td><%= answer.invite1 %>, <%= answer.invite2 %>, <%= answer.invite3 %>, <%= answer.invite4 %>, <%= answer.invite5 %>, <%= answer.invite6 %></td>
+        <td><%= link_to "Edit", edit_answer_path(answer)%> <span>|</span>
           <%= link_to "Delete", answer_path(answer),
           method: :delete,
           data: { confirm: "Are you sure?" }, class:"btn-del" %> </td>
