@@ -22,27 +22,55 @@
           <%= f.input :present, label:"Oui, je serai présent(e) !", class: "checkbox", input_html: { id: "1" } %>
         </div>
         <div class="col-sm">
-          <%= f.input :number_of_invites, default:0, label: "     | Nous serons : " , collection: [0, 1, 2, 3, 4, 5], input_html: {id: "4", :style=> 'width: 25%;', :rows => 4}%>
+          <%= f.input :number_of_invites, default:0, label: "     | Nous serons : " , collection: [0, 1, 2, 3, 4, 5, 6, 7], input_html: {id: "4", :style=> 'width: 25%;', :rows => 4}%>
         </div>
       </div>
-      <div class="inviteenplus1">
-        <%= f.input :invite1 %>
+
+
+      <div class="row">
+        <div class="col-sm">
+          <div id="inviteenplus1" style="display: none">
+            <%= f.input :invite1, label:"Invité 1 :" %>
+          </div>
+
+        </div>
+        <div class="col-sm">
+          <div id="inviteenplus2" style="display: none">
+            <%= f.input :invite2, label:"Invité 2 :" %>
+          </div>
+
+        </div>
+        <div class="col-sm">
+          <div id="inviteenplus3" style="display: none">
+            <%= f.input :invite3, label:"Invité 3 :" %>
+          </div>
+
+        </div>
       </div>
-      <div class="inviteenplus2">
-        <%= f.input :invite2 %>
+
+      <div class="row">
+        <div class="col-sm">
+          <div id="inviteenplus4" style="display: none">
+            <%= f.input :invite4, label:"Invité 4 :" %>
+          </div>
+
+        </div>
+        <div class="col-sm">
+          <div id="inviteenplus5" style="display: none">
+            <%= f.input :invite5, label:"Invité 5 :" %>
+          </div>
+
+        </div>
+        <div class="col-sm">
+          <div id="inviteenplus6" style="display: none">
+            <%= f.input :invite6, label:"Invité 6 :" %>
+          </div>
+
+        </div>
       </div>
-      <div class="inviteenplus3">
-        <%= f.input :invite3 %>
-      </div>
-      <div class="inviteenplus4">
-        <%= f.input :invite4 %>
-      </div>
-      <div class="inviteenplus5">
-        <%= f.input :invite5 %>
-      </div>
-      <div class="inviteenplus6">
-        <%= f.input :invite6 %>
-      </div>
+
+
+
       <%= f.input :mairie, label:"Non, mais je serai présent(e) au mariage civil à Paris", class: "checkbox", input_html: { id: "2" }  %>
       <%= f.input :absent, label:"Je ne vais pas pouvoir mais je penserai à vous !", class: "checkbox", input_html: { id: "3" }  %>
       <%= f.input :comment, label: "Laissez nous un petit mot : ", :as => :text, input_html: { :style=> 'width: 100%;', :rows => 4} %>
@@ -105,9 +133,24 @@
   checkbox2.addEventListener('change', handleChecked2)
   checkbox3.addEventListener('change', handleChecked3)
 
-  // checkbox1.addEventListener('change', unable)
-  // checkbox2.addEventListener('change', unable)
-  // checkbox3.addEventListener('change', unable)
+  constnum = document.getElementById("4")
+  constnum.addEventListener('change', (event)=> {
+    let i = 1;
+    const num = constnum.value;
+    while (i<=6) {
+      let element = document.getElementById(`inviteenplus${i}`);
+      if (i < num) {
+        console.log(element);
+
+        element.style.display = "block";
+      } else {
+        element.style.display = "none";
+      }
+      i+=1;
+    }
+
+  })
+
 
 </script>
 

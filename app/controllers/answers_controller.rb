@@ -14,6 +14,14 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
+    if @answer.save
+      redirect_to confirmed_path
+    else
+      render 'new'
+    end
+  end
+
+  def confirmed
   end
 
   private

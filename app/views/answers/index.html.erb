@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Ceux qui ont répondus</h1>
+  <% a = 0 %>
+  <% @answers.each do |answer|  %>
+  <% a += answer.number_of_invites %>
+  <% end %>
+
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nom</th>
+        <th scope="col">👨‍👩‍👧‍👦</th>
+        <th scope="col">🌲</th>
+        <th scope="col">💒</th>
+        <th scope="col">❌</th>
+        <th scope="col">Petit mot 📋</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @answers.each do |answer| %>
+      <tr>
+        <th scope="row"><%= answer.name %></th>
+        <td><%= answer.number_of_invites %></td>
+        <td><%= answer.present ? "🌲" : "-" %></td>
+        <td><%= answer.mairie ? "💒" : "-" %></td>
+        <td><%= answer.absent ? "❌" : "-" %></td>
+        <td><%= answer.comment %></td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+
+
+</div>
+
