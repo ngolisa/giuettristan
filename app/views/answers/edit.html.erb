@@ -5,7 +5,7 @@
     <div class="confirmation-presence">
 
       <h5>
-        Changer la réponse de <%= @answer %> </h5>
+        Changer la réponse de <% @answer.name %> </h5>
         <br>
 
 
@@ -24,19 +24,19 @@
 
         <div class="row">
           <div class="col-sm">
-            <div id="inviteenplus1" style="display: none">
+            <div id="inviteenplus1">
               <%= f.input :invite1, label:"Invité 1 :" %>
             </div>
 
           </div>
           <div class="col-sm">
-            <div id="inviteenplus2" style="display: none">
+            <div id="inviteenplus2">
               <%= f.input :invite2, label:"Invité 2 :" %>
             </div>
 
           </div>
           <div class="col-sm">
-            <div id="inviteenplus3" style="display: none">
+            <div id="inviteenplus3">
               <%= f.input :invite3, label:"Invité 3 :" %>
             </div>
 
@@ -45,19 +45,19 @@
 
         <div class="row">
           <div class="col-sm">
-            <div id="inviteenplus4" style="display: none">
+            <div id="inviteenplus4">
               <%= f.input :invite4, label:"Invité 4 :" %>
             </div>
 
           </div>
           <div class="col-sm">
-            <div id="inviteenplus5" style="display: none">
+            <div id="inviteenplus5">
               <%= f.input :invite5, label:"Invité 5 :" %>
             </div>
 
           </div>
           <div class="col-sm">
-            <div id="inviteenplus6" style="display: none">
+            <div id="inviteenplus6">
               <%= f.input :invite6, label:"Invité 6 :" %>
             </div>
 
@@ -128,23 +128,7 @@
     checkbox2.addEventListener('change', handleChecked2)
     checkbox3.addEventListener('change', handleChecked3)
 
-    constnum = document.getElementById("4")
-    constnum.addEventListener('change', (event)=> {
-      let i = 1;
-      const num = constnum.value;
-      while (i<=6) {
-        let element = document.getElementById(`inviteenplus${i}`);
-        if (i < num) {
-          console.log(element);
 
-          element.style.display = "block";
-        } else {
-          element.style.display = "none";
-        }
-        i+=1;
-      }
-
-    })
 
 
   </script>

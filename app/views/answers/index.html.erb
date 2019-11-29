@@ -31,7 +31,18 @@
         <td><%= answer.mairie ? "💒" : "-" %></td>
         <td><%= answer.absent ? "❌" : "-" %></td>
         <td><%= answer.comment %></td>
-        <td><%= answer.invite1 %>, <%= answer.invite2 %>, <%= answer.invite3 %>, <%= answer.invite4 %>, <%= answer.invite5 %>, <%= answer.invite6 %></td>
+        <td>
+          <ol>
+            <li><%= answer.invite1 %></li>
+            <li><%= answer.invite2 %></li>
+            <li><%= answer.invite3 %></li>
+            <li><%= answer.invite4 %></li>
+            <li><%= answer.invite5 %></li>
+            <li><%= answer.invite6 %></li>
+
+
+          </ol>
+        </td>
         <td><%= link_to "Edit", edit_answer_path(answer)%> <span>|</span>
           <%= link_to "Delete", answer_path(answer),
           method: :delete,
