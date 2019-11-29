@@ -1,0 +1,70 @@
+// body{
+//   max-width: 200vh;
+// }
+
+.savedate img{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.savedate{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+// html, body {
+//   margin: 0;
+//   overflow-x: hidden;
+// }
+
+// .pagesavedate {
+//  overflow-x: hidden;
+//  position:absolute;
+
+// }
+
+
+.confirmation-presence{
+
+  padding:50px;
+}
+
+
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  color: black !important;
+}
+
+.btn-send{
+  background-color: black;
+  color:white;
+  border-radius: 4px;
+  &:hover{
+    background-color: white;
+    color:black;
+    border: solid 2px black;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .message-confirmation img{
+    width:50%;
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .message-confirmation img{
+    width:100%;
+    height: 100%;
+  }
+}
+
+
+.message-confirmation {
+  text-align: center;
+}
+
+
+

@@ -13,5 +13,12 @@ class AnswersController < ApplicationController
   end
 
   def create
+    @answer = Answer.new(answer_params)
+  end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:name, :present, :mairie, :absent, :number_of_invites, :comment)
   end
 end
