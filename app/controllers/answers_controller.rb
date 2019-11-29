@@ -1,5 +1,5 @@
 class AnswersController < ApplicationController
-  skip_before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:new, :create]
   # , only: [:new]
   def index
     @answers = Answer.all
@@ -19,6 +19,25 @@ class AnswersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @answer = Answer.find(params[:id])
+  end
+
+  def update
+    @answer = Answer.find(params[:id])
+    if @answer.update(answer_params)
+      redirect_to answers_path
+    else
+      render 'update'
+    end
+  end
+
+  def destroy
+    @answer = Answer.find(params[:id])
+    @answer.destroy
+    redirect_to answers_path
   end
 
   def confirmed

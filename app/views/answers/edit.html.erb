@@ -1,0 +1,152 @@
+
+<div class="row pagesavedate">
+
+  <div class="justify-content-center align-items-center col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+    <div class="confirmation-presence">
+
+      <h5>
+        Changer la réponse de <%= @answer %> </h5>
+        <br>
+
+
+        <%= simple_form_for @answer do |f| %>
+        <%= f.input :name, label: "Nom et Prénom : " %>
+
+        <div class="row">
+          <div class="col-sm">
+            <%= f.input :present, label:"Oui, je serai présent(e) !", class: "checkbox", input_html: { id: "1" } %>
+          </div>
+          <div class="col-sm">
+            <%= f.input :number_of_invites, default:0, label: "     | Nous serons : " , collection: [0, 1, 2, 3, 4, 5, 6, 7], input_html: {id: "4", :style=> 'width: 25%;', :rows => 4}%>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm">
+            <div id="inviteenplus1" style="display: none">
+              <%= f.input :invite1, label:"Invité 1 :" %>
+            </div>
+
+          </div>
+          <div class="col-sm">
+            <div id="inviteenplus2" style="display: none">
+              <%= f.input :invite2, label:"Invité 2 :" %>
+            </div>
+
+          </div>
+          <div class="col-sm">
+            <div id="inviteenplus3" style="display: none">
+              <%= f.input :invite3, label:"Invité 3 :" %>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm">
+            <div id="inviteenplus4" style="display: none">
+              <%= f.input :invite4, label:"Invité 4 :" %>
+            </div>
+
+          </div>
+          <div class="col-sm">
+            <div id="inviteenplus5" style="display: none">
+              <%= f.input :invite5, label:"Invité 5 :" %>
+            </div>
+
+          </div>
+          <div class="col-sm">
+            <div id="inviteenplus6" style="display: none">
+              <%= f.input :invite6, label:"Invité 6 :" %>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <%= f.input :mairie, label:"Non, mais je serai présent(e) au mariage civil à Paris", class: "checkbox", input_html: { id: "2" }  %>
+        <%= f.input :absent, label:"Je ne vais pas pouvoir mais je penserai à vous !", class: "checkbox", input_html: { id: "3" }  %>
+        <%= f.input :comment, label: "Laissez nous un petit mot : ", :as => :text, input_html: { :style=> 'width: 100%;', :rows => 4} %>
+        <%= f.submit "ENVOYER", class: 'btn btn-send' %>
+        <% end %>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+
+    const checkbox1 = document.getElementById("1");
+
+    const checkbox2 = document.getElementById("2");
+
+    const checkbox3 = document.getElementById("3");
+
+    function handleChecked1() {
+
+      checkbox2.checked = false;
+
+      checkbox3.checked = false;
+
+    }
+
+    function handleChecked2() {
+
+      checkbox1.checked = false;
+
+      checkbox3.checked = false;
+
+    }
+
+    function handleChecked3() {
+
+      checkbox1.checked = false;
+
+      checkbox2.checked = false;
+
+    }
+
+    function unable() {
+      if (checkbox2.checked) {
+        document.getElementById("4").disabled = true;
+      }
+      else if (checkbox3.checked) {
+        document.getElementById("4").disabled = true;
+      }
+      else {
+        document.getElementById("4").disabled = false;
+      }
+    }
+
+
+    checkbox1.addEventListener('change', handleChecked1)
+    checkbox2.addEventListener('change', handleChecked2)
+    checkbox3.addEventListener('change', handleChecked3)
+
+    constnum = document.getElementById("4")
+    constnum.addEventListener('change', (event)=> {
+      let i = 1;
+      const num = constnum.value;
+      while (i<=6) {
+        let element = document.getElementById(`inviteenplus${i}`);
+        if (i < num) {
+          console.log(element);
+
+          element.style.display = "block";
+        } else {
+          element.style.display = "none";
+        }
+        i+=1;
+      }
+
+    })
+
+
+  </script>
+
+

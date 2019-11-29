@@ -1,3 +1,5 @@
+<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+<% if current_user.admin %>
 <div class="container">
   <h1>Ceux qui ont répondus</h1>
   <% a = 0 %>
@@ -28,12 +30,16 @@
         <td><%= answer.mairie ? "💒" : "-" %></td>
         <td><%= answer.absent ? "❌" : "-" %></td>
         <td><%= answer.comment %></td>
-      </tr>
-      <%end%>
-    </tbody>
-  </table>
+        <td><%= link_to "Edit", edit_answer_path(answer)%>
+          <%= link_to "Delete", answer_path(answer),
+          method: :delete,
+          data: { confirm: "Are you sure?" }, class:"btn-del" %> </td>
+        </tr>
+        <%end%>
+      </tbody>
+    </table>
 
 
 
-</div>
-
+  </div>
+  <% end %>
