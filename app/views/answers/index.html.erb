@@ -19,41 +19,53 @@
         <th scope="col">💒</th>
         <th scope="col">❌</th>
         <th scope="col">Petit mot 📋</th>
-        <th scope="col">Invités</th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <% @answers.each do |answer| %>
       <tr>
-        <th scope="row"><%= answer.name %></th>
-        <td><%= answer.number_of_invites %></td>
-        <td><%= answer.present ? "🌲" : "-" %></td>
-        <td><%= answer.mairie ? "💒" : "-" %></td>
-        <td><%= answer.absent ? "❌" : "-" %></td>
-        <td><%= answer.comment %></td>
-        <td>
-          <ol>
-            <li><%= answer.invite1 %></li>
-            <li><%= answer.invite2 %></li>
-            <li><%= answer.invite3 %></li>
-            <li><%= answer.invite4 %></li>
-            <li><%= answer.invite5 %></li>
-            <li><%= answer.invite6 %></li>
-
-
-          </ol>
-        </td>
-        <td><%= link_to "Edit", edit_answer_path(answer)%> <span>|</span>
-          <%= link_to "Delete", answer_path(answer),
-          method: :delete,
-          data: { confirm: "Are you sure?" }, class:"btn-del" %> </td>
-        </tr>
-        <%end%>
-      </tbody>
-    </table>
+        <th scope="row">
+          <h5><strong> <%= answer.name %></strong> </h5
+            <div>
+              <%= answer.invite1 %>
+            </div>
+            <div>
+              <%= answer.invite2 %>
+            </div>
+            <div>
+              <%= answer.invite3 %>
+            </div>
+            <div>
+              <%= answer.invite4 %>
+            </div>
+            <div>
+              <%= answer.invite5 %>
+            </div>
+            <div>
+              <%= answer.invite6 %>
+            </div>
 
 
 
-  </div>
-  <% end %>
+          </th>
+          <td><%= answer.number_of_invites %></td>
+          <td><%= answer.present ? "🌲" : "-" %></td>
+          <td><%= answer.mairie ? "💒" : "-" %></td>
+          <td><%= answer.absent ? "❌" : "-" %></td>
+          <td><%= answer.comment %></td>
+          <td>
+          </td>
+          <td><%= link_to "Edit", edit_answer_path(answer)%> <span>|</span>
+            <%= link_to "Delete", answer_path(answer),
+            method: :delete,
+            data: { confirm: "Are you sure?" }, class:"btn-del" %> </td>
+          </tr>
+          <%end%>
+        </tbody>
+      </table>
+
+
+
+    </div>
+    <% end %>
