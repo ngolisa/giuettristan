@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :answers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/confirmed', to: "answers#confirmed"
+  get '/infos', to:"pages#infos"
 end
